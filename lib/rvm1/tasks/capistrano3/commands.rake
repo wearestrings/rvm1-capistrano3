@@ -5,7 +5,6 @@ namespace :rvm1 do
       on roles(fetch(:rvm1_roles, :all)) do
         execute :mkdir, "-p", "#{fetch(:rvm1_auto_script_path)}/"
         upload! File.expand_path("../../../../../script/install-rvm.sh", __FILE__), "#{fetch(:rvm1_auto_script_path)}/install-rvm.sh"
-        execute :chmod, "+x", "#{fetch(:rvm1_auto_script_path)}/install-rvm.sh"
         execute "#{fetch(:rvm1_auto_script_path)}/install-rvm.sh"
       end
     end
